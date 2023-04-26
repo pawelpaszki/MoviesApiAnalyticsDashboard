@@ -51,7 +51,6 @@ function App() {
 
   async function fetchLogs() {
     const logsAnalytics = await getLogsAnalytics();
-    console.log(logsAnalytics);
     setFetchedData(logsAnalytics);
     processData(logsAnalytics);
     setFetched(true);
@@ -61,12 +60,8 @@ function App() {
     let barChartData = [["Requests", "number of hits"]];
     logsAnalytics.requestsCount.forEach(el => {
       if (el.length === 2) { // url and method+count
-        console.log(el[0]);
-        console.log(el[1]);
-        console.log(el[1].stats);
         if (el[1].stats !== undefined) {
           el[1].stats.forEach(endpoint => {
-            console.log(endpoint);
             if (endpoint.method !== undefined && endpoint.count !== undefined) {
               barChartData.push([`${endpoint.method} ${el[0]}`, parseInt(endpoint.count)]);
             }
@@ -74,7 +69,6 @@ function App() {
         }
       }
     });
-    console.log(barChartData);
     setRequestsPerUrlData(barChartData);
   }
 
