@@ -9,7 +9,6 @@ This project is a supplement of [this API](https://github.com/pawelpaszki/ewd-ap
 * logs from the API
 
 ![][s1]
-
 ![][s2]
 
 ### Built With

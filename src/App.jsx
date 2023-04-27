@@ -57,13 +57,13 @@ function App() {
   }
 
   function processRequestsPerUrlCount(logsAnalytics) {
-    let barChartData = [["Requests", "number of hits"]];
+    let barChartData = [["Requests", "number of success hits", "number of failures"]];
     logsAnalytics.requestsCount.forEach(el => {
       if (el.length === 2) { // url and method+count
         if (el[1].stats !== undefined) {
           el[1].stats.forEach(endpoint => {
-            if (endpoint.method !== undefined && endpoint.count !== undefined) {
-              barChartData.push([`${endpoint.method} ${el[0]}`, parseInt(endpoint.count)]);
+            if (endpoint.method !== undefined  && endpoint.successCount !== undefined && endpoint.failureCount !== undefined) {
+              barChartData.push([`${endpoint.method} ${el[0]}`, parseInt(endpoint.successCount), parseInt(endpoint.failureCount)]);
             }
           });
         }
