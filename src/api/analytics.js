@@ -1,5 +1,5 @@
 export const getLogsAnalytics = () => {
-  return fetch(`${import.meta.env.VITE_API_URL}/logs/analytics`, {
+  return fetch(`/logs/analytics`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${import.meta.env.VITE_SECRET_TOKEN}`
